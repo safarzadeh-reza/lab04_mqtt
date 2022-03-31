@@ -110,83 +110,9 @@
 		crossorigin=""></script>
 
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-
-	</head>
-	<body>
-		<h1>ENGO 651 - Lab04 - Websockets Using JavaScript MQTT Client</h1>
-		<script>
-			var connected_flag=0	
-			var mqtt;
-			var reconnectTimeout = 2000;
-			//var host="192.168.1.41";
-			//var port=9001;
-		</script>
-	
-		<div id="status">Connection Status: Not Connected</div>
-		<br>
-		<form name="connform" action="" onsubmit="return MQTTconnect()">
-			<div class="col-25">
-				<label for="fname">Server:</label>
-			</div>
-			<div class="col-75">
-				<input type="text" id="servername" name="server" placeholder="Your server ..">
-			</div>
-			<div class="col-25">
-				<label for="fname"> Port:</label>
-			</div>
-			<div class="col-75">
-				<input type="text" id="portname" name="port" placeholder="Your port..">
-			</div>
-			<input type="submit" value="Connect">
-			<input type="button" name="discon " value="DisConnect" onclick="disconnect()">
-		</form>
-		<hr>
-		<form name="subs" action="" onsubmit="return sub_topics()">
-			<div class="col-25">
-				<label for="fname">Subscribe Topic:</label>
-			</div>
-			<div class="col-75">
-				<input type="text" id="stopicname" name="Stopic" placeholder="Your stopic..">
-			</div>
-			<!-- Subscribe Topic:   <input type="text" name="Stopic"><br><br> -->
-			<input type="submit" value="Subscribe">
-		</form> 
-		<hr>
-		<form name="smessage" action="" onsubmit="return send_message()">
-			<!-- Message: <input type="text" name="message"><br><br> -->
-			<!-- Publish Topic:   <input type="text" name="Ptopic"><br><br> -->
-			<div class="col-25">
-				<label for="fname">Publish Topic:</label>
-			</div>
-			<div class="col-75">
-				<input type="text" id="ptopicname" name="Ptopic" placeholder="Your topic..">
-			</div>
-			<div class="row">
-				<div class="col-25">
-				  <label for="subject">Message:</label>
-				</div>
-				<div class="col-75">
-				  <textarea id="subject" name="message" placeholder="Write something.." style="height:200px"></textarea>
-				</div>
-			  </div>
-			<input type="submit" value="Submit">
-		</form>
-		<br>
-	</br>
-		<hr>
-		Messages:<p id="messages"></p>
-		<hr>
-		<button id = "find-me">Share my status</button><br/>
-		<p id = "loc-status"></p>
-		<div class="container">
-		<!-- <div id="map" style="width: 100%;height:100%;"></div> -->
-		<span style="width:298px; height: 298px;"><div id="map" style="height: 200px;"></div></span>
-		</div>
-
-	</body>
-
-	<script>
+    		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+		
+		<script type = "text/javascript">
 
 		function onConnectionLost(){
 			console.log("connection lost");
@@ -421,4 +347,77 @@
 		document.querySelector('#find-me').addEventListener('click', geoFindMe);
 
 	</script>
+	</head>
+	<body>
+		<h1>ENGO 651 - Lab04 - Websockets Using JavaScript MQTT Client</h1>
+		<script>
+			var connected_flag=0	
+			var mqtt;
+			var reconnectTimeout = 2000;
+			//var host="192.168.1.41";
+			//var port=9001;
+		</script>
+	
+		<div id="status">Connection Status: Not Connected</div>
+		<br>
+		<form name="connform" action="" onsubmit="return MQTTconnect()">
+			<div class="col-25">
+				<label for="fname">Server:</label>
+			</div>
+			<div class="col-75">
+				<input type="text" id="servername" name="server" placeholder="Your server ..">
+			</div>
+			<div class="col-25">
+				<label for="fname"> Port:</label>
+			</div>
+			<div class="col-75">
+				<input type="text" id="portname" name="port" placeholder="Your port..">
+			</div>
+			<input type="submit" value="Connect">
+			<input type="button" name="discon " value="DisConnect" onclick="disconnect()">
+		</form>
+		<hr>
+		<form name="subs" action="" onsubmit="return sub_topics()">
+			<div class="col-25">
+				<label for="fname">Subscribe Topic:</label>
+			</div>
+			<div class="col-75">
+				<input type="text" id="stopicname" name="Stopic" placeholder="Your stopic..">
+			</div>
+			<!-- Subscribe Topic:   <input type="text" name="Stopic"><br><br> -->
+			<input type="submit" value="Subscribe">
+		</form> 
+		<hr>
+		<form name="smessage" action="" onsubmit="return send_message()">
+			<!-- Message: <input type="text" name="message"><br><br> -->
+			<!-- Publish Topic:   <input type="text" name="Ptopic"><br><br> -->
+			<div class="col-25">
+				<label for="fname">Publish Topic:</label>
+			</div>
+			<div class="col-75">
+				<input type="text" id="ptopicname" name="Ptopic" placeholder="Your topic..">
+			</div>
+			<div class="row">
+				<div class="col-25">
+				  <label for="subject">Message:</label>
+				</div>
+				<div class="col-75">
+				  <textarea id="subject" name="message" placeholder="Write something.." style="height:200px"></textarea>
+				</div>
+			  </div>
+			<input type="submit" value="Submit">
+		</form>
+		<br>
+	</br>
+		<hr>
+		Messages:<p id="messages"></p>
+		<hr>
+		<button id = "find-me">Share my status</button><br/>
+		<p id = "loc-status"></p>
+		<div class="container">
+		<!-- <div id="map" style="width: 100%;height:100%;"></div> -->
+		<span style="width:298px; height: 298px;"><div id="map" style="height: 200px;"></div></span>
+		</div>
+
+	</body>
 </html>
